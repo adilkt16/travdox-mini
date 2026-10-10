@@ -7,7 +7,7 @@ import BottomNav from './components/BottomNav'
 import AtlasGlobe from './components/AtlasGlobe'
 import CountryPage from './components/CountryPage'
 import PassportTab from './components/PassportTab'
-import ExchangePlaceholder from './components/ExchangePlaceholder'
+import ExchangeTab from './components/ExchangeTab'
 
 function AppContent() {
   const [passport, setPassport] = usePassport()
@@ -22,7 +22,7 @@ function AppContent() {
   const getActiveTab = () => {
     const path = location.pathname.toLowerCase()
     if (path.includes('passport')) return 'passport'
-    if (path.includes('exchange')) return 'exchange'
+    if (path.includes('exchange') || path.startsWith('/x/')) return 'exchange'
     return 'atlas'
   }
 
@@ -109,12 +109,16 @@ function AppContent() {
             <Route
               path="/exchange"
               element={
-                <div className="flex-1 flex flex-col overflow-y-auto">
-                  <ExchangePlaceholder
-                    passport={passport}
-                    visitedCount={visitedCount}
-                    onResetPassport={handleResetPassport}
-                  />
+                <div className="flex-1 flex flex-col overflow-hidden">
+                  <ExchangeTab onResetPassport={handleResetPassport} />
+                </div>
+              }
+            />
+            <Route
+              path="/x/:code"
+              element={
+                <div className="flex-1 flex flex-col overflow-hidden">
+                  <ExchangeTab onResetPassport={handleResetPassport} />
                 </div>
               }
             />
