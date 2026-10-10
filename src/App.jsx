@@ -6,7 +6,7 @@ import IssuePage from './components/IssuePage'
 import BottomNav from './components/BottomNav'
 import AtlasGlobe from './components/AtlasGlobe'
 import CountryPage from './components/CountryPage'
-import PassportPlaceholder from './components/PassportPlaceholder'
+import PassportTab from './components/PassportTab'
 import ExchangePlaceholder from './components/ExchangePlaceholder'
 
 function AppContent() {
@@ -104,15 +104,7 @@ function AppContent() {
             />
             <Route
               path="/passport"
-              element={
-                <div className="flex-1 flex flex-col overflow-y-auto">
-                  <PassportPlaceholder
-                    passport={passport}
-                    visitedCount={visitedCount}
-                    findsCount={findsCount}
-                  />
-                </div>
-              }
+              element={<PassportTab />}
             />
             <Route
               path="/exchange"
