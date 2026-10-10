@@ -4,7 +4,8 @@ import { usePassport, useVisited, useFinds } from './lib/store'
 import PassportCover from './components/PassportCover'
 import IssuePage from './components/IssuePage'
 import BottomNav from './components/BottomNav'
-import AtlasPlaceholder from './components/AtlasPlaceholder'
+import AtlasGlobe from './components/AtlasGlobe'
+import CountryPagePlaceholder from './components/CountryPagePlaceholder'
 import PassportPlaceholder from './components/PassportPlaceholder'
 import ExchangePlaceholder from './components/ExchangePlaceholder'
 
@@ -76,7 +77,7 @@ function AppContent() {
     <main className="w-full min-h-[100dvh] flex justify-center bg-[#E4D7B8] p-0 sm:p-4">
       <div className="w-full max-w-[480px] min-h-[100dvh] bg-paper text-ink shadow-passport flex flex-col justify-between relative border-x border-ink/20">
         {/* Top Minimal Sovereign Bar */}
-        <header className="px-4 py-2 bg-paper-shadow/60 border-b border-ink/20 flex items-center justify-between text-[11px] font-typewriter text-ink/75 uppercase tracking-wider">
+        <header className="px-4 py-2 bg-paper-shadow/60 border-b border-ink/20 flex items-center justify-between text-[11px] font-typewriter text-ink/75 uppercase tracking-wider shrink-0">
           <div className="flex items-center gap-1.5">
             <span className="w-2 h-2 rounded-full bg-stamp-green inline-block" />
             <span className="font-bold text-ink">LAYOVER PASSPORT</span>
@@ -87,44 +88,42 @@ function AppContent() {
         </header>
 
         {/* Routed Page Content */}
-        <div className="flex-1 flex flex-col overflow-y-auto">
+        <div className="flex-1 flex flex-col overflow-hidden relative">
           <Routes>
             <Route
               path="/"
-              element={
-                <AtlasPlaceholder
-                  passport={passport}
-                  visitedCount={visitedCount}
-                />
-              }
+              element={<AtlasGlobe passport={passport} />}
             />
             <Route
               path="/atlas"
-              element={
-                <AtlasPlaceholder
-                  passport={passport}
-                  visitedCount={visitedCount}
-                />
-              }
+              element={<AtlasGlobe passport={passport} />}
+            />
+            <Route
+              path="/country/:iso"
+              element={<CountryPagePlaceholder passport={passport} />}
             />
             <Route
               path="/passport"
               element={
-                <PassportPlaceholder
-                  passport={passport}
-                  visitedCount={visitedCount}
-                  findsCount={findsCount}
-                />
+                <div className="flex-1 flex flex-col overflow-y-auto">
+                  <PassportPlaceholder
+                    passport={passport}
+                    visitedCount={visitedCount}
+                    findsCount={findsCount}
+                  />
+                </div>
               }
             />
             <Route
               path="/exchange"
               element={
-                <ExchangePlaceholder
-                  passport={passport}
-                  visitedCount={visitedCount}
-                  onResetPassport={handleResetPassport}
-                />
+                <div className="flex-1 flex flex-col overflow-y-auto">
+                  <ExchangePlaceholder
+                    passport={passport}
+                    visitedCount={visitedCount}
+                    onResetPassport={handleResetPassport}
+                  />
+                </div>
               }
             />
             <Route path="*" element={<Navigate to="/" replace />} />
