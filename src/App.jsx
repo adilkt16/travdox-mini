@@ -5,7 +5,7 @@ import PassportCover from './components/PassportCover'
 import IssuePage from './components/IssuePage'
 import BottomNav from './components/BottomNav'
 import AtlasGlobe from './components/AtlasGlobe'
-import CountryPagePlaceholder from './components/CountryPagePlaceholder'
+import CountryPage from './components/CountryPage'
 import PassportPlaceholder from './components/PassportPlaceholder'
 import ExchangePlaceholder from './components/ExchangePlaceholder'
 
@@ -100,7 +100,7 @@ function AppContent() {
             />
             <Route
               path="/country/:iso"
-              element={<CountryPagePlaceholder passport={passport} />}
+              element={<CountryPage passport={passport} />}
             />
             <Route
               path="/passport"

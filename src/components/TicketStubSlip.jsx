@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { getStampColor } from '../lib/geo'
+import HoldToStamp from './HoldToStamp'
 
 /**
  * Torn Ticket-Stub Bottom Slip
@@ -127,26 +128,27 @@ export default function TicketStubSlip({
           {/* Ticket Actions */}
           <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 pt-1 font-typewriter">
             {!isVisited ? (
-              <button
-                type="button"
-                onClick={() => onMarkVisited(country.iso2)}
-                id="btn-mark-entered"
-                className="flex-1 min-h-[44px] px-4 py-2 border-2 border-ink bg-stamp-green text-paper-light hover:brightness-110 active:scale-[0.98] font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition cursor-pointer shadow-sm"
-              >
-                <span className="text-sm">✦</span>
-                <span>Mark as entered</span>
-              </button>
+              <HoldToStamp
+                id={`entry-${country.iso2}`}
+                title={country.name}
+                subtitle="ENTRY VISA"
+                color={stampColor}
+                onStamp={() => onMarkVisited(country.iso2)}
+                label="HOLD TO STAMP ENTRY"
+                className="flex-1"
+                buttonClassName="w-full bg-[#E7DBBE] hover:bg-paper-light border-2 border-ink text-ink font-bold"
+              />
             ) : (
               <div className="flex-1 min-h-[44px] px-3 py-2 border-2 border-ink/40 bg-paper-shadow/30 text-ink/80 text-xs uppercase tracking-wider flex items-center justify-center gap-2 font-semibold">
                 <span style={{ color: stampColor }}>✓</span>
-                <span>Entry Stamped</span>
+                <span>Entry Stamped ({visitedDate || 'RECORDED'})</span>
               </div>
             )}
 
             <Link
               to={`/country/${country.iso2.toLowerCase()}`}
               id="btn-open-country-page"
-              className="min-h-[44px] px-4 py-2 border-2 border-ink bg-paper-light hover:bg-paper active:scale-[0.98] text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm text-center"
+              className="min-h-[44px] px-4 py-2 border-2 border-ink bg-paper-light hover:bg-paper active:scale-[0.98] text-ink font-bold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm text-center shrink-0"
             >
               <span>Open page</span>
               <span className="text-sm">→</span>

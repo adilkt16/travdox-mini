@@ -103,3 +103,71 @@
   background-image: radial-gradient(circle, rgba(28, 43, 75, 0.04) 1px, transparent 1px);
   background-size: 8px 8px;
 }
+
+/* Page shake (2px) on stamp impact */
+@keyframes page-shake {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-2px, 1.5px); }
+  40% { transform: translate(2px, -2px); }
+  60% { transform: translate(-1.5px, 2px); }
+  80% { transform: translate(1px, -1px); }
+  100% { transform: translate(0, 0); }
+}
+
+.page-shake {
+  animation: page-shake 220ms ease-out forwards;
+}
+
+/* Stamp slam: scale 1.35 -> 1 with 2deg overshoot */
+@keyframes stamp-slam {
+  0% {
+    transform: scale(1.35) rotate(2deg);
+    opacity: 0.35;
+    filter: blur(1.5px);
+  }
+  60% {
+    transform: scale(0.97) rotate(-1deg);
+    opacity: 1;
+    filter: blur(0px);
+  }
+  80% {
+    transform: scale(1.02) rotate(0.5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.animate-stamp-slam {
+  animation: stamp-slam 280ms cubic-bezier(0.18, 0.89, 0.32, 1.28) forwards;
+}
+
+/* Ink bloom effect at point of impact */
+@keyframes ink-bloom {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.45;
+  }
+  100% {
+    transform: scale(1.35);
+    opacity: 0;
+  }
+}
+
+.animate-ink-bloom {
+  animation: ink-bloom 450ms ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shake,
+  .animate-stamp-slam,
+  .animate-ink-bloom {
+    animation: none !important;
+  }
+}
+

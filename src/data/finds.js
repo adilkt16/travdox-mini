@@ -1,0 +1,853 @@
+/**
+ * Seeded authentic finds for Layover Passport
+ * 12 primary countries with 8 finds each (5 common, 2 rare, 1 legendary)
+ * Covering categories: food, landmark, souvenir, experience
+ */
+
+export const SEEDED_FINDS = {
+  // INDIA
+  IN: [
+    {
+      id: 'IN-halwa',
+      country: 'IN',
+      title: 'Kozhikode Halwa',
+      description: 'Translucent ghee-slicked sweet cut fresh from copper vats on SM Street',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'IN-biryani',
+      country: 'IN',
+      title: 'Malabar Biryani',
+      description: 'Fragrant Khaima rice dum-cooked with tender spiced mutton and crisp onions',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'IN-pashmina',
+      country: 'IN',
+      title: 'Kashmiri Pashmina Shawl',
+      description: 'Hand-spun Changthangi cashmere with intricate sozni needlework',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'IN-qutub',
+      country: 'IN',
+      title: 'Qutub Minar',
+      description: '73-meter fluted red sandstone minaret towering over Mehrauli ruins',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'IN-train',
+      country: 'IN',
+      title: 'Mumbai Local Train Rush',
+      description: 'Hanging by the open doorways of Western Railway in peak morning rush',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'IN-houseboat',
+      country: 'IN',
+      title: 'Kerala Backwater Houseboat',
+      description: 'Drifting on an open-roof kettuvallam through emerald canals of Alleppey',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'IN-hampi',
+      country: 'IN',
+      title: 'Hampi Stone Chariot',
+      description: '16th-century Vijayanagara granite shrine dedicated to Garuda in ancient ruins',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'IN-taj',
+      country: 'IN',
+      title: 'Taj Mahal at Dawn',
+      description: 'White Makrana marble reflecting the first pink rays above the Yamuna River',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // UNITED ARAB EMIRATES
+  AE: [
+    {
+      id: 'AE-shawarma',
+      country: 'AE',
+      title: 'Al Diyafah Lamb Shawarma',
+      description: 'Thin-sliced spiced spit-roasted lamb wrapped in khubz with pungent toum',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'AE-soap',
+      country: 'AE',
+      title: 'Camel Milk & Oud Soap',
+      description: 'Cold-pressed moisturizing bar cured with Al Ain camel milk and pure agarwood',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'AE-frame',
+      country: 'AE',
+      title: 'Dubai Frame Glass Walk',
+      description: '150-meter gilded portal framing historic Deira and glass towers of Downtown',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'AE-abra',
+      country: 'AE',
+      title: 'Abra Across Dubai Creek',
+      description: 'One-dirham open wooden ferry ride crossing between Deira and Bur Dubai souks',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'AE-luqaimat',
+      country: 'AE',
+      title: 'Luqaimat with Date Syrup',
+      description: 'Crisp golden fried dough puffs drizzled in thick dibs and toasted sesame',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'AE-mosque',
+      country: 'AE',
+      title: 'Sheikh Zayed Grand Mosque',
+      description: '82 white marble domes and floral mother-of-pearl courtyards in Abu Dhabi',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'AE-dunes',
+      country: 'AE',
+      title: 'Liwa Desert Dune Bashing',
+      description: 'Tackling the towering 300-meter red slipfaces of the Empty Quarter',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'AE-burj',
+      country: 'AE',
+      title: 'Burj Khalifa 148th Floor Sunrise',
+      description: 'Standing on the highest open-air observatory above desert cloud cover',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // JAPAN
+  JP: [
+    {
+      id: 'JP-tamago',
+      country: 'JP',
+      title: 'Tsukiji Market Tamagoyaki',
+      description: 'Steaming layered dashi rolled omelet served fresh on a wooden skewer',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'JP-kitsune',
+      country: 'JP',
+      title: 'Fushimi Inari Kitsune Mask',
+      description: 'Hand-painted papier-mâché fox spirit mask blessed by mountain shrine priests',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'JP-shibuya',
+      country: 'JP',
+      title: 'Shibuya Scramble Crossing',
+      description: 'World’s busiest pedestrian junction surging under giant neon video walls',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'JP-onsen',
+      country: 'JP',
+      title: 'Hakone Open-Air Onsen Soak',
+      description: 'Bathing in volcanic mineral waters surrounded by cedars and mountain mist',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'JP-ramen',
+      country: 'JP',
+      title: 'Midnight Hakata Tonkotsu Ramen',
+      description: 'Milky 16-hour pork bone broth with thin springy noodles and chashu pork',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'JP-toyosu',
+      country: 'JP',
+      title: 'Toyosu Dawn Tuna Auction',
+      description: 'Watching bell-rung wholesale bidding on flash-frozen giant Pacific bluefins',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'JP-kinkaku',
+      country: 'JP',
+      title: 'Kinkaku-ji in Fresh Snow',
+      description: 'Kyoto’s Golden Pavilion shimmering above the frozen mirror pond Kyoko-chi',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'JP-fuji',
+      country: 'JP',
+      title: 'Mount Fuji Summit Goraiko',
+      description: 'Witnessing the sacred sunrise above the sea of clouds from the 3,776m crater',
+      category: 'experience',
+      rarity: 'legendary',
+    },
+  ],
+
+  // FRANCE
+  FR: [
+    {
+      id: 'FR-baguette',
+      country: 'FR',
+      title: 'Fresh Baguette de Tradition',
+      description: 'Blistered honeycomb crust and warm chewy crumb straight from the stone hearth',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'FR-soap',
+      country: 'FR',
+      title: 'Savon de Marseille 72% Olive Oil',
+      description: 'Historic 300g cubic block stamped with traditional maritime apothecary seal',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'FR-sacre',
+      country: 'FR',
+      title: 'Sacré-Cœur Montmartre Steps',
+      description: 'Panoramic view over zinc Parisian rooftops listening to evening harp buskers',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'FR-seine',
+      country: 'FR',
+      title: 'Bouquinistes Seine Riverside Hunt',
+      description: 'Browsing antique leather volumes and posters in dark green riverside boxes',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'FR-steak',
+      country: 'FR',
+      title: 'Steak Frites with Café de Paris',
+      description: 'Sizzling pan-seared entrecôte served with crisp shoestring fries and herb butter',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'FR-michel',
+      country: 'FR',
+      title: 'Mont-Saint-Michel Spring High Tide',
+      description: 'Medieval Gothic abbey completely cut off by the galloping Atlantic tides',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'FR-truffle',
+      country: 'FR',
+      title: 'Périgord Black Truffle Hunt',
+      description: 'Trailing trained hounds through oak groves for subterranean black diamonds',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'FR-eiffel',
+      country: 'FR',
+      title: 'Eiffel Tower Midnight Sparkle',
+      description: '20,000 flash lamps illuminating the wrought-iron lattice into pure gold',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // THAILAND
+  TH: [
+    {
+      id: 'TH-padthai',
+      country: 'TH',
+      title: 'Thip Samai Fire-Wok Pad Thai',
+      description: 'Chantaburi rice noodles wrapped inside an egg-crepe pouch with shrimp oil',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'TH-mango',
+      country: 'TH',
+      title: 'Golden Mango Sticky Rice',
+      description: 'Warm coconut-infused glutinous rice with slices of ripe sweet Nam Dok Mai',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'TH-celadon',
+      country: 'TH',
+      title: 'Chiang Mai Celadon Ceramic',
+      description: 'Wood-ash jade glazed stoneware thrown by Lanna artisans with fine crackle',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'TH-watarun',
+      country: 'TH',
+      title: 'Wat Arun Temple of Dawn',
+      description: 'Chao Phraya riverfront prang encrusted with millions of Chinese porcelain pieces',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'TH-songthaew',
+      country: 'TH',
+      title: 'Chiang Mai Old City Songthaew',
+      description: 'Breezing around historic red brick moats in the back of a shared crimson pickup',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'TH-whitetemple',
+      country: 'TH',
+      title: 'Wat Rong Khun White Temple',
+      description: 'Surreal snow-white Buddhist architecture inset with reflective mirrored glass',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'TH-amphawa',
+      country: 'TH',
+      title: 'Amphawa Floating Canal Market',
+      description: 'Grilled river prawns handed up from wooden longtail boats at twilight',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'TH-yipeng',
+      country: 'TH',
+      title: 'Yi Peng Sky Lantern Release',
+      description: 'Ten thousand paper khom loi lanterns floating into the northern night sky',
+      category: 'experience',
+      rarity: 'legendary',
+    },
+  ],
+
+  // INDONESIA
+  ID: [
+    {
+      id: 'ID-nasigoreng',
+      country: 'ID',
+      title: 'Jakarta Street Nasi Goreng Gila',
+      description: 'Smoky wok-charred fried rice piled with meatballs, sausage, and sweet kecap',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'ID-batik',
+      country: 'ID',
+      title: 'Javanese Canting Batik Tulis',
+      description: 'Hand-drawn hot beeswax cotton textile dyed with indigo and soga bark',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'ID-tanahlot',
+      country: 'ID',
+      title: 'Tanah Lot Sea Temple',
+      description: 'Ancient offshore shrine perched on an ocean rock amidst crashing Indian waves',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'ID-monkeyforest',
+      country: 'ID',
+      title: 'Ubud Sacred Monkey Forest',
+      description: 'Moss-covered stone carvings and giant banyan trees guarded by macaques',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'ID-sate',
+      country: 'ID',
+      title: 'Charcoal Sate Ayam Madura',
+      description: 'Flame-grilled marinated chicken skewers drenched in coarse roasted peanut sauce',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'ID-prambanan',
+      country: 'ID',
+      title: 'Prambanan Shiva Temple Spire',
+      description: '47-meter towering 9th-century Hindu stone temples adorned with Ramayana bas-reliefs',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'ID-bromo',
+      country: 'ID',
+      title: 'Mount Bromo Caldera Sunrise',
+      description: 'Active smoking volcanic crater rising out of the primordial Sea of Sand',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'ID-borobudur',
+      country: 'ID',
+      title: 'Borobudur Stupa Dawn in Mist',
+      description: 'World’s largest Buddhist monument emerging from sunrise jungle mist in Java',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // ITALY
+  IT: [
+    {
+      id: 'IT-espresso',
+      country: 'IT',
+      title: 'Roman Bar Crema Espresso',
+      description: 'Standing at the polished zinc counter knocking back a thick 25ml crema pull',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'IT-pizza',
+      country: 'IT',
+      title: 'Neapolitan Pizza a Portafoglio',
+      description: 'Wood-fired sourdough crust folded into a wallet with San Marzano sauce and basil',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'IT-murano',
+      country: 'IT',
+      title: 'Murano Hand-Blown Glass',
+      description: 'Vibrant molten glass spun into delicate millefiori patterns on the Venetian lagoon',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'IT-trevi',
+      country: 'IT',
+      title: 'Trevi Fountain Coin Toss',
+      description: 'Tossing a coin over the left shoulder into Nicola Salvi’s baroque marble basin',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'IT-vespa',
+      country: 'IT',
+      title: 'Amalfi Coast Cliffside Vespa',
+      description: 'Carving narrow coastal hairpins between lemon terraces and cobalt Tyrrhenian sea',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'IT-duomo',
+      country: 'IT',
+      title: 'Florence Duomo Cupola Climb',
+      description: 'Climbing 463 narrow stone steps between the double brick shells of Brunelleschi’s dome',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'IT-gondola',
+      country: 'IT',
+      title: 'Venice Twilight Back-Canal Gondola',
+      description: 'Silently gliding past mossy palazzo watergates far from the Grand Canal',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'IT-colosseum',
+      country: 'IT',
+      title: 'Roman Colosseum Underground Hypogeum',
+      description: 'Walking the subterranean stone tunnels where gladiators awaited the arena floor',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // UNITED KINGDOM
+  GB: [
+    {
+      id: 'GB-breakfast',
+      country: 'GB',
+      title: 'Traditional Full English Breakfast',
+      description: 'Cumberland sausage, black pudding, grilled field mushroom, fried eggs, and brown sauce',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'GB-earlgrey',
+      country: 'GB',
+      title: 'Fortnum & Mason Earl Grey Tin',
+      description: 'Bergamot-infused whole leaf black tea in an embossed Eau de Nil caddy',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'GB-bigben',
+      country: 'GB',
+      title: 'Big Ben & Westminster Bridge',
+      description: 'Gothic Great Clock bell chiming deep E-notes over the Thames at high noon',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'GB-routemaster',
+      country: 'GB',
+      title: 'Routemaster Top Deck Front Seat',
+      description: 'Front-row perch cruising past Piccadilly circus lights and Trafalgar Square',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'GB-fishchips',
+      country: 'GB',
+      title: 'Seaside Fish & Chips with Mushy Peas',
+      description: 'Crisp golden beer-battered cod sprinkled with malt vinegar and sea salt in paper',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'GB-baths',
+      country: 'GB',
+      title: 'Roman Baths Thermal Basin',
+      description: 'Ancient green mineral spring steaming at 46°C inside 2,000-year-old lead foundations',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'GB-lochness',
+      country: 'GB',
+      title: 'Loch Ness Highland Water Cruise',
+      description: 'Scanning dark peaty depths beneath the crumbling ramparts of Urquhart Castle',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'GB-stonehenge',
+      country: 'GB',
+      title: 'Stonehenge Inner Sarsen Solstice',
+      description: 'Standing inside the inner sarsen trilithons aligned directly to the midsummer sun',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // UNITED STATES
+  US: [
+    {
+      id: 'US-pizza',
+      country: 'US',
+      title: 'New York Dollar Fold Slice',
+      description: 'Wide crisp charred crust folded down the middle dripping with bubbling mozzarella',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'US-route66',
+      country: 'US',
+      title: 'Route 66 Embossed Metal Shield',
+      description: 'Heavy stamped tin highway marker replicating the historic Mother Road sign',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'US-goldengate',
+      country: 'US',
+      title: 'Golden Gate Bridge Fog Vista',
+      description: '746-foot International Orange towers piercing Karl the Fog over San Francisco Bay',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'US-yellowcab',
+      country: 'US',
+      title: 'Times Square Yellow Cab Rush',
+      description: 'Blaring neon billboard reflections shimmering off wet black Manhattan asphalt',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'US-brisket',
+      country: 'US',
+      title: 'Austin Post-Oak Smoked Brisket',
+      description: 'Fourteen-hour low-and-slow prime brisket with thick peppery bark and melted tallow',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'US-grandcanyon',
+      country: 'US',
+      title: 'Grand Canyon South Rim Sunset',
+      description: 'Crimson and ochre rock strata glowing as evening shadows fall a mile below',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'US-frenchmen',
+      country: 'US',
+      title: 'Frenchmen Street Brass Band Jam',
+      description: 'Blistering horns and bass drums spilling out of dark New Orleans jazz clubs',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'US-oldfaithful',
+      country: 'US',
+      title: 'Yellowstone Old Faithful Eruption',
+      description: 'Superheated boiling water spewing 150 feet high into crisp mountain pine air',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // SINGAPORE
+  SG: [
+    {
+      id: 'SG-chickenrice',
+      country: 'SG',
+      title: 'Tian Tian Hainanese Chicken Rice',
+      description: 'Silky poached chicken over chicken-fat ginger rice with spicy chilli garlic dip',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'SG-kayatoast',
+      country: 'SG',
+      title: 'Ya Kun Kaya Butter Toast',
+      description: 'Charcoal toasted bread with coconut pandan jam, thick cold butter, and soft eggs',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'SG-tigerbalm',
+      country: 'SG',
+      title: 'Tiger Balm Hexagonal Ointment Tin',
+      description: 'Potent red herbal camphor and clove balm in the timeless stamped pocket tin',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'SG-merlion',
+      country: 'SG',
+      title: 'Merlion Waterfront Spout',
+      description: 'Iconic half-lion half-fish fountain spouting into Marina Bay under evening breezes',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'SG-hawker',
+      country: 'SG',
+      title: 'Newton Circus Midnight Hawker Supper',
+      description: 'Smoky grilled sambal stingray and pork satay skewers under whirling ceiling fans',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'SG-supertree',
+      country: 'SG',
+      title: 'Gardens by the Bay Supertrees',
+      description: 'Towering 50-meter vertical fern towers glowing in sync with evening orchestral light show',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'SG-nightsafari',
+      country: 'SG',
+      title: 'Night Safari Open Tram Journey',
+      description: 'Spotting Asian elephants and Malayan tapirs grazing under moonlit equatorial forest',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'SG-mbs',
+      country: 'SG',
+      title: 'Marina Bay Sands Infinity Pool',
+      description: 'Floating in the world’s longest rooftop pool 57 stories suspended over the city',
+      category: 'landmark',
+      rarity: 'legendary',
+    },
+  ],
+
+  // TURKEY
+  TR: [
+    {
+      id: 'TR-simit',
+      country: 'TR',
+      title: 'Fresh Sesame Simit & Çay',
+      description: 'Molasses-dipped roasted sesame crust ring served with a hot tulip glass of tea',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'TR-iznik',
+      country: 'TR',
+      title: 'Hand-Painted Iznik Ceramic Bowl',
+      description: 'Vibrant cobalt blue and Turkish turquoise quartz bowl painted with carnation motifs',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'TR-galata',
+      country: 'TR',
+      title: 'Galata Tower 360° Balcony',
+      description: '14th-century Genoese stone cylinder looking out across the Golden Horn',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'TR-bosphorus',
+      country: 'TR',
+      title: 'Bosphorus Ferry Continental Crossing',
+      description: 'Feeding simit crusts to following gulls crossing from Europe into Asia at dusk',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'TR-adana',
+      country: 'TR',
+      title: 'Charcoal Skewered Adana Kebab',
+      description: 'Hand-minced spicy lamb kebab charbroiled on flat skewers with sumac onions',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'TR-hagiasophia',
+      country: 'TR',
+      title: 'Hagia Sophia Seraphim Dome',
+      description: '6th-century golden Byzantine pendentive dome hanging as if suspended from heaven',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'TR-pamukkale',
+      country: 'TR',
+      title: 'Pamukkale Travertine Terraces',
+      description: 'Walking barefoot through snow-white warm mineral pools carved by calcium carbonate',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'TR-cappadocia',
+      country: 'TR',
+      title: 'Cappadocia Sunrise Balloon Flight',
+      description: 'Drifting high above volcanic fairy chimneys as hundreds of hot air balloons rise with dawn',
+      category: 'experience',
+      rarity: 'legendary',
+    },
+  ],
+
+  // MALAYSIA
+  MY: [
+    {
+      id: 'MY-nasilemak',
+      country: 'MY',
+      title: 'Banana-Leaf Nasi Lemak Bungkus',
+      description: 'Coconut-scented rice with fiery spicy sambal, crispy anchovies, and hard-boiled egg',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'MY-roticanai',
+      country: 'MY',
+      title: 'Mamak Stall Flaky Roti Canai',
+      description: 'Freshly stretched butter-flaked flatbread dipped in aromatic dhal and sambal',
+      category: 'food',
+      rarity: 'common',
+    },
+    {
+      id: 'MY-pewter',
+      country: 'MY',
+      title: 'Royal Selangor Pewter Figurine',
+      description: 'Hand-hammered 97% tin pewter piece cast and polished in Kuala Lumpur kilns',
+      category: 'souvenir',
+      rarity: 'common',
+    },
+    {
+      id: 'MY-batucaves',
+      country: 'MY',
+      title: 'Batu Caves Golden Murugan Steps',
+      description: 'Giant 140-foot golden Lord Murugan statue guarding 272 rainbow limestone steps',
+      category: 'landmark',
+      rarity: 'common',
+    },
+    {
+      id: 'MY-georgetown',
+      country: 'MY',
+      title: 'George Town Street Art Hunt',
+      description: 'Wandering historic shophouse alleys discovering whimsical bicycle and cat murals',
+      category: 'experience',
+      rarity: 'common',
+    },
+    {
+      id: 'MY-petronas',
+      country: 'MY',
+      title: 'Petronas Twin Towers Skybridge',
+      description: 'Double-decked bridge suspended 170 meters high connecting the gleaming stainless spires',
+      category: 'landmark',
+      rarity: 'rare',
+    },
+    {
+      id: 'MY-cameron',
+      country: 'MY',
+      title: 'Cameron Highlands Tea Plantations',
+      description: 'Hiking rolling emerald hills shrouded in morning mist at 1,500 meters altitude',
+      category: 'experience',
+      rarity: 'rare',
+    },
+    {
+      id: 'MY-kinabalu',
+      country: 'MY',
+      title: 'Mount Kinabalu Low’s Peak 4,095m',
+      description: 'Standing on the highest granite plateau in Malaysia as the sunrise strikes Borneo',
+      category: 'experience',
+      rarity: 'legendary',
+    },
+  ],
+}
+
+/**
+ * Get all seeded finds for an ISO2 country code.
+ */
+export function getFindsForCountry(iso2) {
+  if (!iso2) return []
+  const key = String(iso2).toUpperCase()
+  return SEEDED_FINDS[key] || []
+}
+
+/**
+ * Check if a country has seeded finds.
+ */
+export function hasSeededFinds(iso2) {
+  if (!iso2) return false
+  const key = String(iso2).toUpperCase()
+  return Boolean(SEEDED_FINDS[key] && SEEDED_FINDS[key].length > 0)
+}
+
+/**
+ * Find a specific item by its global ID across all countries.
+ */
+export function getFindById(findId) {
+  if (!findId) return null
+  for (const countryList of Object.values(SEEDED_FINDS)) {
+    const match = countryList.find((f) => f.id === findId)
+    if (match) return match
+  }
+  return null
+}
