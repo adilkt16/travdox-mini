@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState, useMemo, useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import Globe from 'globe.gl'
 import * as THREE from 'three'
 import { COUNTRIES } from '../data/countries'
@@ -292,17 +293,29 @@ export default function AtlasGlobe() {
             <span className="font-bold">COUNTRIES &nbsp;{visitedCount} / 195</span>
           </div>
 
-          {/* Slow auto-rotate indicator & toggle */}
-          <button
-            type="button"
-            onClick={handleToggleRotate}
-            id="btn-toggle-rotate"
-            className="min-h-[44px] min-w-[44px] border-2 border-ink bg-[#FBF7ED] hover:bg-paper-light active:scale-95 text-ink text-[10px] font-typewriter px-2.5 py-1 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm tracking-wider uppercase"
-            title={isAutoRotating ? 'Pause slow rotation' : 'Resume slow rotation'}
-            aria-label="Toggle globe rotation"
-          >
-            <span>{isAutoRotating ? '⏸ PAUSE' : '▶ ROTATE'}</span>
-          </button>
+          <div className="flex items-center gap-1.5">
+            {/* 3D Flight Reel Link */}
+            <Link
+              to="/reel"
+              id="btn-atlas-flight-reel"
+              className="min-h-[44px] border-2 border-[#C9A24B] bg-[#5A1F26] text-[#F2DC8A] hover:bg-[#6e272f] text-[10px] font-typewriter px-2.5 py-1 flex items-center justify-center gap-1 transition cursor-pointer shadow-sm tracking-wider uppercase font-bold"
+              title="Watch 3D Expedition Flight Reel"
+            >
+              <span>✈️ REEL</span>
+            </Link>
+
+            {/* Slow auto-rotate indicator & toggle */}
+            <button
+              type="button"
+              onClick={handleToggleRotate}
+              id="btn-toggle-rotate"
+              className="min-h-[44px] min-w-[44px] border-2 border-ink bg-[#FBF7ED] hover:bg-paper-light active:scale-95 text-ink text-[10px] font-typewriter px-2.5 py-1 flex items-center justify-center gap-1.5 transition cursor-pointer shadow-sm tracking-wider uppercase"
+              title={isAutoRotating ? 'Pause slow rotation' : 'Resume slow rotation'}
+              aria-label="Toggle globe rotation"
+            >
+              <span>{isAutoRotating ? '⏸ PAUSE' : '▶ ROTATE'}</span>
+            </button>
+          </div>
         </div>
 
         {/* Search Field: "FIND A COUNTRY" with Typeahead */}

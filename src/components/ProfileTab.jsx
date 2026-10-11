@@ -6,6 +6,7 @@ import { SEEDED_FINDS } from '../data/finds'
 import { COUNTRIES_BY_ISO2, getStampColor } from '../lib/geo'
 import { formatStampDate } from './Stamp'
 import Crest from './Crest'
+import FlightReel from './FlightReel'
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -38,6 +39,7 @@ export default function ProfileTab() {
   const [monumentFilter, setMonumentFilter] = useState('all') // 'all' | 'stamped' | 'unvisited'
   const [monumentSearch, setMonumentSearch] = useState('')
   const [copiedToast, setCopiedToast] = useState(false)
+  const [showFlightReel, setShowFlightReel] = useState(false)
 
   // 1. Visited Countries statistics
   const visitedList = useMemo(() => {
@@ -384,6 +386,37 @@ Verified by Layover Transit Authority
             </div>
           </div>
         </div>
+
+        {/* 1.5 EXPEDITION FLIGHT REEL BANNER */}
+        <button
+          type="button"
+          onClick={() => setShowFlightReel(true)}
+          className="w-full bg-[#5A1F26] text-[#F2DC8A] border-2 border-[#C9A24B] p-3 shadow-md hover:bg-[#6b252d] transition-all cursor-pointer flex items-center justify-between group rounded-xs"
+        >
+          <div className="flex items-center gap-3 text-left">
+            <div className="w-10 h-10 rounded-full bg-[#C9A24B]/20 border border-[#C9A24B] flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+              ✈️
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-serif font-bold text-sm text-[#F2DC8A] tracking-wider uppercase">
+                  EXPEDITION FLIGHT REEL
+                </span>
+                <span className="text-[7px] bg-[#C9A24B] text-ink font-bold px-1.5 py-0.5 rounded-xs uppercase tracking-widest animate-pulse">
+                  3D VIDEO
+                </span>
+              </div>
+              <p className="text-[9px] text-[#F2DC8A]/80 tracking-wide mt-0.5">
+                Watch 3D airplane navigate globe through your visited countries
+              </p>
+            </div>
+          </div>
+          <div className="text-right shrink-0">
+            <span className="text-[10px] font-bold px-2.5 py-1 bg-[#C9A24B] text-ink rounded-xs uppercase tracking-wider group-hover:bg-[#FFF9E6] transition-colors">
+              PLAY REEL ▶
+            </span>
+          </div>
+        </button>
 
         {/* 2. CORE METRICS OVERVIEW (COUNTRIES, MONUMENTS, FINDS, RELICS) */}
         <div>
@@ -832,6 +865,11 @@ Verified by Layover Transit Authority
         </div>
 
       </div>
+
+      {/* Flight Journey Reel Modal */}
+      {showFlightReel && (
+        <FlightReel onClose={() => setShowFlightReel(false)} />
+      )}
     </div>
   )
 }

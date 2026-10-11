@@ -9,6 +9,7 @@ import CountryPage from './components/CountryPage'
 import PassportTab from './components/PassportTab'
 import ExchangeTab from './components/ExchangeTab'
 import ProfileTab from './components/ProfileTab'
+import FlightReel from './components/FlightReel'
 
 function AppContent() {
   const [passport, setPassport] = usePassport()
@@ -124,6 +125,10 @@ function AppContent() {
             <Route
               path="/profile"
               element={<ProfileTab />}
+            />
+            <Route
+              path="/reel"
+              element={<FlightReel onClose={() => navigate('/profile')} />}
             />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
