@@ -192,10 +192,10 @@ export default function HoldToStamp({
       >
         {bloomActive && (
           <div
-            className="absolute inset-0 rounded-full animate-ink-bloom pointer-events-none"
+            className="absolute -inset-4 rounded-full animate-ink-bloom pointer-events-none z-30"
             style={{
-              backgroundColor: inkColor,
-              filter: 'blur(8px)',
+              background: `radial-gradient(circle, ${inkColor}D9 0%, ${inkColor}88 45%, ${inkColor}26 70%, transparent 100%)`,
+              mixBlendMode: 'multiply',
             }}
             aria-hidden="true"
           />
@@ -224,10 +224,10 @@ export default function HoldToStamp({
       {/* Bloom flash if slamming */}
       {bloomActive && (
         <div
-          className="absolute inset-0 rounded-full animate-ink-bloom pointer-events-none z-20"
+          className="absolute -inset-4 rounded-full animate-ink-bloom pointer-events-none z-30"
           style={{
-            backgroundColor: inkColor,
-            filter: 'blur(6px)',
+            background: `radial-gradient(circle, ${inkColor}D9 0%, ${inkColor}88 45%, ${inkColor}26 70%, transparent 100%)`,
+            mixBlendMode: 'multiply',
           }}
           aria-hidden="true"
         />

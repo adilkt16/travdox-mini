@@ -109,23 +109,23 @@ export default function Stamp({
           {/* Rough ink filter using feTurbulence + feDisplacementMap */}
           <filter
             id={`rough-ink-${safeId}`}
-            x="-20%"
-            y="-20%"
-            width="140%"
-            height="140%"
+            x="-20"
+            y="-20"
+            width="200"
+            height="200"
             filterUnits="userSpaceOnUse"
           >
             <feTurbulence
               type="fractalNoise"
-              baseFrequency="0.042 0.042"
-              numOctaves="3"
+              baseFrequency="0.048 0.048"
+              numOctaves="4"
               result="noise"
               seed={(hash % 97) + 1}
             />
             <feDisplacementMap
               in="SourceGraphic"
               in2="noise"
-              scale="2.6"
+              scale="4.0"
               xChannelSelector="R"
               yChannelSelector="G"
               result="displaced"
@@ -140,11 +140,21 @@ export default function Stamp({
             x2="100%"
             y2="100%"
           >
-            <stop offset="0%" stopColor="#A57F2C" />
-            <stop offset="30%" stopColor="#F2DC8A" />
-            <stop offset="50%" stopColor="#FFF9E6" />
-            <stop offset="70%" stopColor="#F2DC8A" />
-            <stop offset="100%" stopColor="#C9A24B" />
+            <stop offset="0%" stopColor="#A57F2C">
+              <animate attributeName="stop-color" values="#A57F2C;#F2DC8A;#FFF9E6;#C9A24B;#A57F2C" dur="4s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="30%" stopColor="#F2DC8A">
+              <animate attributeName="stop-color" values="#F2DC8A;#FFF9E6;#C9A24B;#A57F2C;#F2DC8A" dur="4s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="50%" stopColor="#FFF9E6">
+              <animate attributeName="stop-color" values="#FFF9E6;#C9A24B;#A57F2C;#F2DC8A;#FFF9E6" dur="4s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="70%" stopColor="#F2DC8A">
+              <animate attributeName="stop-color" values="#F2DC8A;#A57F2C;#F2DC8A;#FFF9E6;#F2DC8A" dur="4s" repeatCount="indefinite" />
+            </stop>
+            <stop offset="100%" stopColor="#C9A24B">
+              <animate attributeName="stop-color" values="#C9A24B;#F2DC8A;#C9A24B;#A57F2C;#C9A24B" dur="4s" repeatCount="indefinite" />
+            </stop>
           </linearGradient>
 
           {/* Curved text paths for each shape */}
@@ -511,28 +521,37 @@ export default function Stamp({
         {/* OVERSTAMP BANNERS */}
         {showOverstamp && isRare && (
           <g
-            transform="translate(80, 80) rotate(-14) translate(-80, -80)"
+            transform="translate(80, 80) rotate(-12) translate(-80, -80)"
             filter={`url(#rough-ink-${safeId})`}
           >
             <rect
-              x="22"
-              y="68"
-              width="116"
-              height="24"
+              x="18"
+              y="66"
+              width="124"
+              height="28"
+              fill="#FBF7ED"
+              stroke="#B23A2B"
+              strokeWidth="2.5"
+            />
+            <rect
+              x="21"
+              y="69"
+              width="118"
+              height="22"
               fill="#B23A2B"
               fillOpacity="0.16"
               stroke="#B23A2B"
-              strokeWidth="2"
-              strokeDasharray="4 2"
+              strokeWidth="1"
+              strokeDasharray="3 2"
             />
             <text
               x="80"
-              y="84"
+              y="85"
               textAnchor="middle"
               fontFamily="'Big Shoulders Display', sans-serif"
-              fontSize="14"
+              fontSize="16"
               fontWeight="900"
-              letterSpacing="0.18em"
+              letterSpacing="0.2em"
               fill="#B23A2B"
               stroke="none"
             >
@@ -543,25 +562,35 @@ export default function Stamp({
 
         {showOverstamp && isLegendary && (
           <g
-            transform="translate(80, 80) rotate(-10) translate(-80, -80)"
+            transform="translate(80, 80) rotate(-8) translate(-80, -80)"
             filter={`url(#rough-ink-${safeId})`}
           >
             <rect
-              x="16"
-              y="66"
-              width="128"
-              height="26"
+              x="12"
+              y="64"
+              width="136"
+              height="30"
+              fill="#FBF7ED"
+              stroke={`url(#gold-grad-${safeId})`}
+              strokeWidth="2.8"
+            />
+            <rect
+              x="15"
+              y="67"
+              width="130"
+              height="24"
               fill={`url(#gold-grad-${safeId})`}
               fillOpacity="0.22"
               stroke={`url(#gold-grad-${safeId})`}
-              strokeWidth="2.4"
+              strokeWidth="1.2"
+              strokeDasharray="4 2"
             />
             <text
               x="80"
-              y="84"
+              y="85"
               textAnchor="middle"
               fontFamily="'Big Shoulders Display', sans-serif"
-              fontSize="14"
+              fontSize="16"
               fontWeight="900"
               letterSpacing="0.2em"
               fill={`url(#gold-grad-${safeId})`}

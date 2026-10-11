@@ -4,7 +4,7 @@ import { VitePWA } from 'vite-plugin-pwa'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/travdox-mini/',
+  base: process.env.GITHUB_ACTIONS ? '/travdox-mini/' : '/',
   plugins: [
     react(),
     VitePWA({
@@ -17,7 +17,7 @@ export default defineConfig({
         name: 'Layover Passport',
         short_name: 'Layover',
         description: 'Your passport, but you actually want to fill it.',
-        theme_color: '#5A1F26',
+        theme_color: '#F1E8D2',
         background_color: '#F1E8D2',
         display: 'standalone',
         orientation: 'portrait',

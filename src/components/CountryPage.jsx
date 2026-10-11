@@ -245,11 +245,11 @@ export default function CountryPage({ passport }) {
           {/* If No Seeded Finds for this country */}
           {!countryHasSeeded && userCustomList.length === 0 && (
             <div className="py-6 px-4 text-center border-b border-ink/20">
-              <p className="text-xs text-ink/70 uppercase tracking-widest mb-1">
-                NO FINDS CATALOGUED YET.
+              <p className="text-xs text-ink/75 font-bold uppercase tracking-widest mb-1">
+                NOTHING TO DECLARE
               </p>
               <p className="text-[11px] text-ink/55 font-serif italic max-w-[340px] mx-auto">
-                This territory does not yet have official embassy records. Add your own discovery below.
+                No official embassy records catalogued for this territory. Add your own discovery below.
               </p>
             </div>
           )}

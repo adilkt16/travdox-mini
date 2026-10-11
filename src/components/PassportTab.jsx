@@ -184,6 +184,10 @@ function HolderPage({ passport, visitedCount, totalFinds, rareCount, legendaryCo
             <div>{mrzLine1}</div>
             <div>{mrzLine2}</div>
           </div>
+          {/* Credits Line in Special Elite */}
+          <div style={{ fontFamily: "'Special Elite', monospace", fontSize: '8.5px', color: 'rgba(28,43,75,0.45)', letterSpacing: '0.14em', textAlign: 'center', marginTop: '6px', textTransform: 'uppercase' }}>
+            Built overnight at LAYOVER 2026
+          </div>
         </div>
       </div>
 
@@ -288,7 +292,7 @@ function CountryPassportPage({ iso2, date, collectedFinds, allFindsForCountry, p
               date={collectedDate}
               rarity={find.rarity || 'common'}
               size={78}
-              showOverstamp={find.rarity === 'legendary'}
+              showOverstamp={find.rarity === 'rare' || find.rarity === 'legendary'}
               style={{ opacity: 0.88 }}
             />
           </div>
@@ -341,12 +345,12 @@ function EmptyPage({ pageNum, totalPages }) {
           zIndex: 2,
         }}
       >
-        <div style={{ fontFamily: "'IM Fell English', Georgia, serif", fontSize: '22px', color: 'rgba(28,43,75,0.32)', textAlign: 'center', lineHeight: 1.5 }}>
-          NO ENTRIES YET.<br />GO FILL ME.
+        <div style={{ fontFamily: "'IM Fell English', Georgia, serif", fontSize: '24px', color: 'rgba(28,43,75,0.38)', textAlign: 'center', lineHeight: 1.3, letterSpacing: '0.04em' }}>
+          NOTHING TO DECLARE
         </div>
-        <div style={{ marginTop: '24px', width: '80px', borderTop: '1px solid rgba(28,43,75,0.18)' }} />
-        <div style={{ marginTop: '12px', fontFamily: "'Special Elite', monospace", fontSize: '9px', color: 'rgba(28,43,75,0.28)', letterSpacing: '0.18em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.8 }}>
-          Visit countries in the Atlas<br />to stamp this page.
+        <div style={{ marginTop: '16px', width: '80px', borderTop: '1px solid rgba(28,43,75,0.18)' }} />
+        <div style={{ marginTop: '12px', fontFamily: "'Special Elite', monospace", fontSize: '9px', color: 'rgba(28,43,75,0.32)', letterSpacing: '0.18em', textTransform: 'uppercase', textAlign: 'center', lineHeight: 1.8 }}>
+          No visitation records stamped.<br />Explore the Atlas to fill this passport.
         </div>
       </div>
 

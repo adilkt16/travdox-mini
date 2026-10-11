@@ -153,12 +153,12 @@ export function decodePassport(code = '') {
 
 export function friendlyDecodeError(errCode) {
   const map = {
-    NOT_LC1: 'Code must start with "LC1." — check you pasted the full code.',
-    EMPTY_CODE: 'Code is incomplete. Please paste the full passport code.',
-    CORRUPT_CODE: 'This code appears corrupted. Ask your friend to resend it.',
-    UNSUPPORTED_VERSION: 'This code is from a newer version of Layover Passport. Update your app.',
+    NOT_LC1: 'ENTRY REFUSED — Code must start with valid "LC1." prefix.',
+    EMPTY_CODE: 'ENTRY REFUSED — Incomplete passport data stream.',
+    CORRUPT_CODE: 'ENTRY REFUSED — Corrupted security checksum. Request fresh code.',
+    UNSUPPORTED_VERSION: 'ENTRY REFUSED — Newer passport version detected. Update required.',
   }
-  return map[errCode] || 'Invalid code. Please double-check and try again.'
+  return map[errCode] || 'ENTRY REFUSED — Invalid passport code.'
 }
 
 // ─── Sample passports ─────────────────────────────────────────────────────────
@@ -171,7 +171,7 @@ export const SAMPLE_PASSPORTS = [
   {
     label: 'BACKPACKER',
     subtitle: '60 countries · heavy finds',
-    emoji: '🎒',
+    tag: 'DOC-A',
     persona: {
       name: 'ALEX ROADS',
       home: 'US',
@@ -189,7 +189,7 @@ export const SAMPLE_PASSPORTS = [
   {
     label: 'GULF-HOPPER',
     subtitle: '25 countries · Gulf region heavy',
-    emoji: '✈️',
+    tag: 'DOC-B',
     persona: {
       name: 'SARA AL HAMAD',
       home: 'AE',
@@ -205,7 +205,7 @@ export const SAMPLE_PASSPORTS = [
   {
     label: 'FIRST-TIMER',
     subtitle: '4 countries · just starting',
-    emoji: '🌱',
+    tag: 'DOC-C',
     persona: {
       name: 'JAMIE KIM',
       home: 'KR',

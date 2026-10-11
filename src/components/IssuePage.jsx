@@ -192,8 +192,8 @@ export default function IssuePage({ onIssue, onBackToCover }) {
                 tabIndex={-1}
               >
                 {filteredCountries.length === 0 ? (
-                  <div className="p-3 text-xs text-ink/60 uppercase">
-                    NO MATCHING COUNTRY FOUND
+                  <div className="p-3 text-xs text-ink/60 uppercase text-center font-typewriter">
+                    NOTHING TO DECLARE
                   </div>
                 ) : (
                   filteredCountries.map((c) => {
@@ -227,7 +227,7 @@ export default function IssuePage({ onIssue, onBackToCover }) {
               role="alert"
               className="p-2.5 border border-stamp-red bg-stamp-red/10 text-stamp-red text-xs uppercase tracking-wide flex items-center gap-2"
             >
-              <span>⚠</span>
+              <span className="font-bold px-1.5 py-0.5 bg-stamp-red text-paper text-[10px] rounded-xs">ENTRY REFUSED</span>
               <span>{error}</span>
             </div>
           )}

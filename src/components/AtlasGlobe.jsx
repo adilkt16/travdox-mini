@@ -334,6 +334,15 @@ export default function AtlasGlobe() {
           </div>
 
           {/* Typeahead Dropdown */}
+          {isSearchFocused && searchQuery.trim() && filteredCountries.length === 0 && (
+            <div
+              id="search-results-empty"
+              className="absolute top-full left-0 right-0 mt-1 bg-[#FBF7ED] border-2 border-ink shadow-2xl p-3 z-40 font-typewriter text-xs text-ink/70 text-center uppercase tracking-wider"
+            >
+              NOTHING TO DECLARE
+            </div>
+          )}
+
           {isSearchFocused && filteredCountries.length > 0 && (
             <div
               id="search-results-dropdown"
@@ -376,7 +385,7 @@ export default function AtlasGlobe() {
         <div className="absolute inset-0 flex items-center justify-center bg-paper/85 z-10 font-typewriter text-xs text-ink/75 tracking-widest uppercase">
           <div className="flex flex-col items-center gap-2">
             <span className="w-4 h-4 border-2 border-ink border-t-transparent rounded-full animate-spin" />
-            <span>CALIBRATING ATLAS GLOBE...</span>
+            <span>CHECKING RECORDS...</span>
           </div>
         </div>
       )}

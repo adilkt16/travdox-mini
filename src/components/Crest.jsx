@@ -16,10 +16,18 @@ export default function Crest({ className = 'w-24 h-24' }) {
     >
       <defs>
         <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#A57F2C" />
-          <stop offset="35%" stopColor="#F2DC8A" />
-          <stop offset="70%" stopColor="#C9A24B" />
-          <stop offset="100%" stopColor="#8C651F" />
+          <stop offset="0%" stopColor="#A57F2C">
+            <animate attributeName="stop-color" values="#A57F2C;#F2DC8A;#FFF9E6;#C9A24B;#A57F2C" dur="4.5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="35%" stopColor="#F2DC8A">
+            <animate attributeName="stop-color" values="#F2DC8A;#FFF9E6;#C9A24B;#A57F2C;#F2DC8A" dur="4.5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="70%" stopColor="#C9A24B">
+            <animate attributeName="stop-color" values="#C9A24B;#A57F2C;#F2DC8A;#FFF9E6;#C9A24B" dur="4.5s" repeatCount="indefinite" />
+          </stop>
+          <stop offset="100%" stopColor="#8C651F">
+            <animate attributeName="stop-color" values="#8C651F;#C9A24B;#F2DC8A;#C9A24B;#8C651F" dur="4.5s" repeatCount="indefinite" />
+          </stop>
         </linearGradient>
         <filter id="crestEmboss" x="-10%" y="-10%" width="120%" height="120%">
           <feDropShadow dx="0" dy="1" stdDeviation="0.6" floodColor="#000000" floodOpacity="0.8" />

@@ -6,7 +6,6 @@ import {
   friendlyDecodeError,
   SAMPLE_PASSPORTS,
   buildSampleCode,
-  bitsetToVisited,
 } from '../lib/exchange'
 import { SEEDED_FINDS } from '../data/finds'
 import { COUNTRIES } from '../data/countries'
@@ -396,7 +395,7 @@ export default function ExchangeTab({ onResetPassport }) {
                 onClick={() => handleLoadSample(sample)}
                 className="border border-ink/60 px-3 py-2 text-[9px] tracking-widest uppercase text-ink hover:bg-ink hover:text-paper transition-colors min-h-[44px] text-left"
               >
-                <div className="font-bold">{sample.emoji} {sample.label}</div>
+                <div className="font-bold font-typewriter tracking-wider">[{sample.tag || 'PASS'}] {sample.label}</div>
                 <div className="text-ink/60 mt-0.5" style={{ fontSize: 8 }}>
                   {sample.subtitle}
                 </div>
@@ -427,9 +426,12 @@ export default function ExchangeTab({ onResetPassport }) {
             autoCapitalize="off"
           />
           {pasteError && (
-            <div className="text-[10px] text-stamp-red border border-stamp-red/30 bg-stamp-red/5 px-3 py-2 mb-2 flex items-start gap-2">
-              <span className="shrink-0 font-bold">!</span>
-              <span>{pasteError}</span>
+            <div
+              role="alert"
+              className="text-[10px] text-stamp-red border border-stamp-red/50 bg-stamp-red/10 px-3 py-2.5 mb-2 flex items-start gap-2 font-typewriter uppercase tracking-wider"
+            >
+              <span className="shrink-0 font-bold px-1 py-0.2 bg-stamp-red text-paper rounded-xs">ENTRY REFUSED</span>
+              <span className="leading-tight">{pasteError.replace(/^ENTRY REFUSED\s*[—–-]\s*/, '')}</span>
             </div>
           )}
           <button
@@ -529,8 +531,8 @@ export default function ExchangeTab({ onResetPassport }) {
                   </span>
                 </div>
                 {comparison.inCommon.length === 0 ? (
-                  <div className="text-xs text-ink/50 italic py-2 text-center border border-dashed border-ink/20">
-                    No countries in common yet — time to travel!
+                  <div className="text-xs text-ink/60 font-typewriter uppercase tracking-wider py-2.5 text-center border border-dashed border-ink/25 bg-paper-shadow/20">
+                    NOTHING TO DECLARE — NO SHARED EMBASSY RECORDS
                   </div>
                 ) : (
                   <div className="flex flex-wrap gap-1.5 py-2">
@@ -554,7 +556,7 @@ export default function ExchangeTab({ onResetPassport }) {
                 label="YOU'VE BEEN, THEY HAVEN'T"
                 isos={comparison.youNotThem}
                 color="#2A4B9B"
-                emptyMsg="They've been everywhere you have!"
+                emptyMsg="NOTHING TO DECLARE — ALL VISITATION RECORDS MATCH"
               />
 
               {/* They've been, you haven't */}
@@ -562,7 +564,7 @@ export default function ExchangeTab({ onResetPassport }) {
                 label="THEY'VE BEEN, YOU HAVEN'T"
                 isos={comparison.themNotYou}
                 color="#B23A2B"
-                emptyMsg="You've been everywhere they have!"
+                emptyMsg="NOTHING TO DECLARE — ALL VISITATION RECORDS MATCH"
               />
 
               {/* Finds totals */}
