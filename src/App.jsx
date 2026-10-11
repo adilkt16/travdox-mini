@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { HashRouter, Routes, Route, useNavigate, useLocation, Navigate } from 'react-router-dom'
-import { usePassport, useVisited, useFinds } from './lib/store'
+import { usePassport, useVisited } from './lib/store'
 import PassportCover from './components/PassportCover'
 import IssuePage from './components/IssuePage'
 import BottomNav from './components/BottomNav'
@@ -8,11 +8,11 @@ import AtlasGlobe from './components/AtlasGlobe'
 import CountryPage from './components/CountryPage'
 import PassportTab from './components/PassportTab'
 import ExchangeTab from './components/ExchangeTab'
+import ProfileTab from './components/ProfileTab'
 
 function AppContent() {
   const [passport, setPassport] = usePassport()
-  const [visited, markVisited] = useVisited()
-  const [finds] = useFinds()
+  const [, markVisited] = useVisited()
   const [hasOpenedCover, setHasOpenedCover] = useState(false)
 
   const navigate = useNavigate()
@@ -23,6 +23,7 @@ function AppContent() {
     const path = location.pathname.toLowerCase()
     if (path.includes('passport')) return 'passport'
     if (path.includes('exchange') || path.startsWith('/x/')) return 'exchange'
+    if (path.includes('profile')) return 'profile'
     return 'atlas'
   }
 
@@ -32,6 +33,7 @@ function AppContent() {
     if (tabId === 'atlas') navigate('/')
     else if (tabId === 'passport') navigate('/passport')
     else if (tabId === 'exchange') navigate('/exchange')
+    else if (tabId === 'profile') navigate('/profile')
   }
 
   const handleIssuePassport = (passportData) => {
@@ -51,9 +53,6 @@ function AppContent() {
     }
   }
 
-  const visitedCount = visited ? Object.keys(visited).length : 0
-  const findsCount = finds ? Object.keys(finds).length : 0
-
   // 1. If passport not yet issued, show Onboarding Flow (Cover -> Issue Page)
   if (!passport) {
     return (
@@ -72,7 +71,7 @@ function AppContent() {
     )
   }
 
-  // 2. Main 3-Tab Shell (Desktop: centered 480px column, Mobile first at 390px)
+  // 2. Main 4-Tab Shell (Desktop: centered 480px column, Mobile first at 390px)
   return (
     <main className="w-full min-h-[100dvh] flex justify-center bg-[#E4D7B8] p-0 sm:p-4">
       <div className="w-full max-w-[480px] min-h-[100dvh] bg-paper text-ink shadow-passport flex flex-col justify-between relative border-x border-ink/20">
@@ -121,6 +120,10 @@ function AppContent() {
                   <ExchangeTab onResetPassport={handleResetPassport} />
                 </div>
               }
+            />
+            <Route
+              path="/profile"
+              element={<ProfileTab />}
             />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
