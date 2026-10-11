@@ -1,68 +1,79 @@
-# Layover Passport 🛂
+# 🛂 Layover Passport
 
-> **"Your passport, but you actually want to fill it."**
+> **Your passport, but you actually want to fill it.**
 
-A PWA travel tracker styled like a real physical passport. Tick countries on a 3D globe, hold to press ink stamps for local finds, swap passport codes with friends.
+A tactile, physical-passport travel companion for travelers and collectors. Explore a vintage 3D globe, stamp visas and local finds with tactile hold-to-ink interactions, and exchange passports with fellow travelers—with zero backend and 100% client-side privacy.
 
-**Built for:** Layover 2026 hackathon · No backend · localStorage only · Vercel static deploy
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-5A1F26?style=for-the-badge&logo=github)](https://adilkt16.github.io/travdox-mini/)
+[![PWA Ready](https://img.shields.io/badge/PWA-Installable-2F6B4F?style=for-the-badge)](https://adilkt16.github.io/travdox-mini/)
+[![License](https://img.shields.io/badge/License-MIT-B23A2B?style=for-the-badge)](#license)
 
 ---
 
-## Tech Stack
+## ✨ Features
 
-React + Vite + Tailwind + `vite-plugin-pwa` · `globe.gl` · HashRouter · no API keys
+- **📖 Physical Passport Aesthetic** — Oxblood leatherette cover with foil insignia, aged deckle-edge paper grain (`SVG feTurbulence`), typewriter fonts, and Machine Readable Zone (MRZ).
+- **🌍 Matte 3D Atlas** — Interactive, rotating 3D globe powered by `globe.gl` and Natural Earth GeoJSON. Tap any country to pull its customs ticket slip.
+- **🖋️ Hold-to-Stamp Tactile Inking** — Press and hold (600ms) to stamp visas and hidden local finds with synthesized WebAudio stamp thumps and haptic feedback.
+- **🤝 Zero-Server Passport Exchange** — Pack your travels into a compact URL code (`LC1.<base64url>`) or QR code to compare visited countries and finds at the Customs Desk with friends.
+- **📱 Offline PWA** — Fully installable as an app on iOS and Android with automatic background service worker caching.
+- **🔒 Private by Design** — No accounts, no database, no trackers. All passport holder data and stamps live exclusively in your device's `localStorage`.
 
-## Three Tabs
+---
 
-| Tab | What it does |
-|---|---|
-| **ATLAS** | 3D matte globe · search · tap country → ticket-stub slip → hold-to-stamp entry |
-| **PASSPORT** | Swipeable stamped pages, holder data, MRZ zone |
-| **EXCHANGE** | Generate/share `LC1.<base64url>` code · paste friend's code · Customs Desk compare |
+## 🛠️ Tech Stack
 
-## Key Interactions
+- **Framework:** [React 19](https://react.dev/) + [Vite](https://vite.dev/)
+- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
+- **Globe & Geo:** [globe.gl](https://globe.gl/) (Three.js / WebGL) + Natural Earth
+- **Routing:** [React Router](https://reactrouter.com/) (HashRouter)
+- **PWA:** `vite-plugin-pwa` (Workbox)
+- **Audio & Haptics:** Web Audio API (synthesized mechanical thuds) + Navigator Vibration API
 
-- **Hold-to-stamp (600 ms):** ink ring fills → stamp slams in (scale 1.35→1, 2° overshoot) → page shake 2px → `vibrate([18,40,12])` → WebAudio thump (synthesized, no file) → "RARE FIND" / "LEGENDARY" overstamp banner
-- **Globe:** matte old-atlas style, slow auto-rotate, visited countries colored by rarity ink, stops on touch
-- **Onboarding:** closed passport cover (oxblood + gold foil) → 3D flip open → typewriter-form issue page → home country auto-stamped
+---
 
-## Design System (non-negotiable)
+## 🚀 Getting Started
 
-**Colors:** Paper `#F1E8D2` · Ink navy `#1C2B4B` · Cover oxblood `#5A1F26` · Gold foil `#A57F2C→#F2DC8A→#C9A24B` · Stamp inks: blue `#2A4B9B`, red `#B23A2B`, green `#2F6B4F`, violet `#5B3F8C`
+### Prerequisites
+- [Node.js](https://nodejs.org/) (v18 or newer)
+- `npm` (or `pnpm` / `yarn`)
 
-**Fonts (Google Fonts, exactly 4):** IM Fell English (headings) · Source Serif 4 (body) · Special Elite (fields/labels) · Big Shoulders Display (stamp text)
+### Installation
 
-**Texture:** SVG `feTurbulence` paper grain (no image files) · Stamps are SVG with `feTurbulence + feDisplacementMap` rough ink edges · `mix-blend-mode: multiply` · random tilt seeded by ID
+```bash
+# 1. Clone the repository
+git clone https://github.com/adilkt16/travdox-mini.git
 
-**Banned:** glassmorphism · Inter/Roboto/system fonts · emoji icons · confetti · purple/blue/pink gradients · generic card grids · default Tailwind colors
+# 2. Enter project folder
+cd travdox-mini
 
-## Data Shape (localStorage)
+# 3. Install dependencies
+npm install
 
-```js
-passport:    { name, home, no, issuedAt }
-visited:     { "IN": "2026-10-11", ... }
-finds:       { "IN-halwa": "2026-10-11", ... }
-customFinds: { "IN": [{ id, title }] }
+# 4. Start local development server
+npm run dev
 ```
 
-**Share code:** `LC1.<base64url>` → version + name (≤20 chars) + home iso2 + visited bitset over fixed COUNTRIES array + find counts. Link: `/#/x/<code>`
+Open `http://localhost:5173` in your browser.
 
-## Seeded Finds
+### Building for Production
 
-12 countries have 8 finds each (5 common / 2 rare / 1 legendary): `IN AE JP FR TH ID IT GB US SG TR MY`. Must be real, specific, well-known places/items. India includes Kerala/Kozhikode items.
+```bash
+npm run build
+```
 
-## Critical Rules
-
-- `COUNTRIES` array in `src/data/countries.js` → **NEVER reorder**
-- Natural Earth GeoJSON: France & Norway have `ISO_A2 = -99` → use `ISO_A2_EH` or `ADM0_A3`
-- All localStorage reads/writes in `try/catch`
-- Mobile-first 390px · Desktop = centered 480px column
-- No backend, no login, no database — ever
-
-## Out of Scope (do not build)
-
-Login · database · leaderboard · chat · notifications · photo verification · bucket list · settings · dark mode · onboarding tour
+The production-ready static assets will be output to the `dist/` directory.
 
 ---
 
-*Built overnight at LAYOVER 2026*
+## 🌐 Deployment
+
+The project is preconfigured with GitHub Actions for instant deployment to GitHub Pages on every push to `main` via `.github/workflows/deploy.yml`.
+
+To host on your own custom domain or platform (Vercel, Netlify, Cloudflare Pages), simply deploy the `dist/` folder.
+
+---
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
